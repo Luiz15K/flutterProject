@@ -78,7 +78,7 @@ class AppMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Menu do Usuário'),
+        title: const Text('Menu'),
       ),
       drawer: Drawer(
         child: ListView(
