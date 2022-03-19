@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: homePage(),
     );
   }
@@ -22,8 +21,32 @@ class homePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(padding: EdgeInsets.zero, children: const <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.teal,
+            ),
+            child: Text(
+              "Menu",
+              style: TextStyle(color: Colors.white, fontSize: 24),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.whatsapp),
+            title: Text("Mensagens"),
+          ),
+          ListTile(
+            leading: Icon(Icons.account_circle),
+            title: Text("Perfil"),
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text("Configurações"),
+          )
+        ]),
+      ),
       appBar: AppBar(
-        title: const Text('Finance App'),
         backgroundColor: Colors.teal,
         foregroundColor: Colors.amber,
         shadowColor: Colors.amber,
@@ -33,7 +56,7 @@ class homePage extends StatelessWidget {
             tooltip: 'Alert',
             onPressed: () {
               ScaffoldMessenger.of(context)
-                  .showSnackBar(const SnackBar(content: Text('Bem vindo')));
+                  .showSnackBar(const SnackBar(content: Text('Test')));
             },
           ),
           IconButton(
@@ -44,16 +67,17 @@ class homePage extends StatelessWidget {
                 builder: (BuildContext context) {
                   return Scaffold(
                     appBar: AppBar(
-                      title: const Text('Next page'),
+                      title: const Text('Opções'),
                       shadowColor: Colors.black,
                       backgroundColor: Colors.teal,
                     ),
                     body: const Center(
                       child: Text(
-                        'This is the next page',
-                        style: TextStyle(fontSize: 24),
+                        'Opção do usuário',
+                        style: TextStyle(fontSize: 28),
                       ),
                     ),
+                    backgroundColor: Colors.teal,
                   );
                 },
               ));
@@ -65,50 +89,6 @@ class homePage extends StatelessWidget {
         child: Text(
           'Pagina Inicial',
           style: TextStyle(fontSize: 24),
-        ),
-      ),
-    );
-  }
-}
-
-class AppMenu extends StatelessWidget {
-  const AppMenu({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Menu'),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: const <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                'Início',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Mensagens'),
-            ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Perfil'),
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Configurações'),
-            ),
-          ],
         ),
       ),
     );
