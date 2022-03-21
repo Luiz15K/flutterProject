@@ -26,32 +26,28 @@ class _bottomBarState extends State<bottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: "Início",
-                backgroundColor: Color.fromARGB(255, 0, 0, 0)),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: "Opções",
-                backgroundColor: Color.fromARGB(255, 0, 0, 0)),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle),
-                label: "Perfil",
-                backgroundColor: Color.fromARGB(255, 0, 0, 0)),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.power_settings_new),
-                label: "Sair",
-                backgroundColor: Color.fromARGB(255, 0, 0, 0))
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.green,
-          onTap: _onItemTapped,
-        ));
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Início",
+            backgroundColor: Colors.teal),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Opções",
+            backgroundColor: Colors.teal),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: "Perfil",
+            backgroundColor: Colors.teal),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.power_settings_new),
+            label: "Sair",
+            backgroundColor: Colors.teal)
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.amber,
+      onTap: _onItemTapped,
+    );
   }
 }
