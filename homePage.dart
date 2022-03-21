@@ -10,33 +10,31 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: bottomBar(),
       drawer: Drawer(
-        child: ListView(padding: EdgeInsets.zero, children: const <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.teal,
-            ),
-            child: Text(
-              "Menu",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  backgroundColor: Colors.teal),
-            ),
-          ),
+          child: Column(
+        children: [
+          DrawerHeader(child: Text("Menu")),
           ListTile(
-            leading: Icon(Icons.whatsapp),
-            title: Text("Mensagens"),
-          ),
+              leading: Icon(Icons.question_mark),
+              title: Text("Drawer"),
+              onTap: () {
+                print("Clique");
+              }),
           ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text("Perfil"),
-          ),
+              leading: Icon(Icons.question_mark),
+              title: Text("Drawer"),
+              onTap: () {
+                print("Clique");
+              }),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text("Configurações"),
-          )
-        ]),
-      ),
+              leading: Icon(Icons.question_mark),
+              title: Text(
+                "Drawer",
+              ),
+              onTap: () {
+                print("Clique");
+              })
+        ],
+      )),
       appBar: AppBar(
         title: Text("Menu do Usuário"),
         backgroundColor: Colors.teal,
@@ -53,7 +51,7 @@ class HomePage extends StatelessWidget {
                       shadowColor: Colors.black,
                       backgroundColor: Colors.teal,
                     ),
-                    body: const Center(
+                    body: Center(
                       child: Text(
                         'Opção do usuário',
                         style: TextStyle(fontSize: 28),
