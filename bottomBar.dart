@@ -15,7 +15,6 @@ class _bottomBarState extends State<bottomBar> {
     Text("Inicio", style: optionStyle),
     Text("Opções", style: optionStyle),
     Text("Perfil", style: optionStyle),
-    Text("Sair", style: optionStyle),
   ];
 
   void _onItemTapped(int index) {
@@ -28,25 +27,19 @@ class _bottomBarState extends State<bottomBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Início"),
         BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Início",
-            backgroundColor: Colors.teal),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Opções",
-            backgroundColor: Colors.teal),
+          icon: Icon(Icons.settings),
+          label: "Opções",
+        ),
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
             label: "Perfil",
-            backgroundColor: Colors.teal),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.power_settings_new),
-            label: "Sair",
-            backgroundColor: Colors.teal)
+            backgroundColor: Colors.white),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Colors.amber,
+      selectedItemColor: Colors.white,
+      backgroundColor: Colors.teal,
       onTap: _onItemTapped,
     );
   }

@@ -39,9 +39,8 @@ class homePage extends StatelessWidget {
         ]),
       ),
       appBar: AppBar(
+        title: Text("Menu do Usuário"),
         backgroundColor: Colors.teal,
-        foregroundColor: Colors.amber,
-        shadowColor: Colors.amber,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.outbox),
