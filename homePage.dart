@@ -1,16 +1,12 @@
 import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:projeto/bottomBar.dart';
 
-class homePage extends StatelessWidget {
-  const homePage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final menuInicial = [
-      "Opções do Usuário, Finanças, Desenvolvimento, Sair da Aplicação"
-    ];
     return Scaffold(
       bottomNavigationBar: bottomBar(),
       drawer: Drawer(
@@ -21,7 +17,10 @@ class homePage extends StatelessWidget {
             ),
             child: Text(
               "Menu",
-              style: TextStyle(color: Colors.white, fontSize: 24),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  backgroundColor: Colors.teal),
             ),
           ),
           ListTile(
@@ -68,9 +67,6 @@ class homePage extends StatelessWidget {
           ),
         ],
       ),
-      body: SizedBox(
-          width: double.infinity, height: double.infinity, child: Container() //
-          ),
     );
   }
 }
