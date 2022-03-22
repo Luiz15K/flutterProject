@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:projeto/homePage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -7,14 +10,14 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-String email = '';
+String login = '';
 String password = '';
 
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-        child: SizedBox(
+    return Scaffold(
+        body: SizedBox(
       width: double.infinity,
       height: double.infinity,
       child: Padding(
@@ -22,12 +25,20 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              width: 200,
+              height: 200,
+              child: Image.asset('assets/images/logo.png'),
+            ),
             TextField(
               onChanged: (text) {
-                email = text;
+                login = text;
               },
               decoration: InputDecoration(
                   border: OutlineInputBorder(), labelText: "Login"),
+            ),
+            SizedBox(
+              height: 10,
             ),
             TextField(
               onChanged: (text) {
@@ -38,13 +49,14 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(), labelText: "Senha"),
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             ElevatedButton(
               onPressed: () {
-                if (email == "luizguilherme011@gmail.com" && password == "1234")
-                  ;
-                print("correto");
+                if (login == "admin" && password == "1234")
+                  Navigator.of(context).pushReplacementNamed('/home');
+                else
+                  (print("Tente Novamente"));
               },
               child: Text("Entrar"),
             )
