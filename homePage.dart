@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:projeto/bottomBar.dart';
 
@@ -12,12 +11,22 @@ class HomePage extends StatelessWidget {
       drawer: Drawer(
           child: Column(
         children: [
-          DrawerHeader(child: Text("Menu")),
+          UserAccountsDrawerHeader(
+              currentAccountPicture: ClipRRect(
+                borderRadius: BorderRadius.circular(40),
+                child: Image.network(
+                    "https://avatars.githubusercontent.com/u/98491571?s=400&u=4071a0bf7c258928a5be27e0a68a5e3ac092b805&v=4"),
+              ),
+              accountName: Text("Luiz Guilherme"),
+              accountEmail: Text("luiz@gmail.com")),
+          DrawerHeader(
+            child: Text("Menu"),
+          ),
           ListTile(
               leading: Icon(Icons.question_mark),
               title: Text("Drawer"),
               onTap: () {
-                print("Clique");
+                print("return");
               }),
           ListTile(
               leading: Icon(Icons.question_mark),
@@ -26,12 +35,12 @@ class HomePage extends StatelessWidget {
                 print("Clique");
               }),
           ListTile(
-              leading: Icon(Icons.question_mark),
+              leading: Icon(Icons.close),
               title: Text(
-                "Drawer",
+                "Logout",
               ),
               onTap: () {
-                print("Clique");
+                Navigator.of(context).pushReplacementNamed('/');
               })
         ],
       )),
