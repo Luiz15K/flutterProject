@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:projeto/homePage.dart';
 
@@ -10,14 +9,12 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-String login = '';
-String password = '';
-
 class _LoginPageState extends State<LoginPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: SizedBox(
+  String login = '';
+  String password = '';
+
+  Widget _body() {
+    return SizedBox(
       width: double.infinity,
       height: double.infinity,
       child: Padding(
@@ -30,39 +27,79 @@ class _LoginPageState extends State<LoginPage> {
               height: 200,
               child: Image.asset('assets/images/logo.png'),
             ),
-            TextField(
-              onChanged: (text) {
-                login = text;
-              },
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: "Login"),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TextField(
-              onChanged: (text) {
-                password = text;
-              },
-              obscureText: true,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: "Senha"),
-            ),
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(
-              onPressed: () {
-                if (login == "admin" && password == "1234")
-                  Navigator.of(context).pushReplacementNamed('/home');
-                else
-                  (print("Tente Novamente"));
-              },
-              child: Text("Entrar"),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 12, right: 12, top: 20, bottom: 12),
+                child: Column(
+                  children: [
+                    TextField(
+                      onChanged: (text) {
+                        login = text;
+                      },
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), labelText: "Login"),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    TextField(
+                      onChanged: (text) {
+                        password = text;
+                      },
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), labelText: "Senha"),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    RaisedButton(
+                      color: Colors.teal,
+                      onPressed: () {
+                        if (login == "admin" && password == "1234")
+                          Navigator.of(context).pushReplacementNamed('/home');
+                        else
+                          (print("Tente Novamente"));
+                      },
+                      child: Container(
+                          width: double.infinity,
+                          child: Text(
+                            "Entrar",
+                            textAlign: TextAlign.center,
+                          )),
+                    )
+                  ],
+                ),
+              ),
             )
           ],
         ),
       ),
-    ));
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Image.asset(
+              'assets/images/background.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.2),
+          ),
+          _body(),
+        ],
+      ),
+    );
   }
 }
