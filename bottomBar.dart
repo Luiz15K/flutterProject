@@ -40,7 +40,6 @@ class _bottomBarState extends State<bottomBar> {
       currentIndex: _selectedIndex,
       selectedItemColor: Colors.white,
       backgroundColor: Colors.teal,
-      onTap: _onItemTapped,
     );
   }
 }
