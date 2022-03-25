@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 
 class bottomBar extends StatefulWidget {
@@ -14,7 +16,7 @@ class _bottomBarState extends State<bottomBar> {
   static const List<Widget> _widgetOptions = <Widget>[
     Text("Inicio", style: optionStyle),
     Text("Opções", style: optionStyle),
-    Text("Perfil", style: optionStyle),
+    Text("Perfil", style: optionStyle)
   ];
 
   void _onItemTapped(int index) {
@@ -27,10 +29,10 @@ class _bottomBarState extends State<bottomBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Início"),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Opções"),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: "Opções",
+          icon: Icon(Icons.home),
+          label: "Início",
         ),
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),

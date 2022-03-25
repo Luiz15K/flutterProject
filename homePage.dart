@@ -1,20 +1,58 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:projeto/bottomBar.dart';
 import 'package:projeto/mailPage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  mudarCores() {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.teal,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.teal,
+        systemNavigationBarIconBrightness: Brightness.dark));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: bottomBar(),
-      body: Card(
-        child: Padding(
-          padding: EdgeInsets.only(right: 400, left: 200, top: 30, bottom: 30),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+        width: double.maxFinite,
+        child: ListView(
+          children: <Widget>[
+            Expanded(
+              child: Card(
+                color: Colors.teal,
+                elevation: 20,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/home');
+                  },
+                  splashColor: Colors.teal,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: ClipRRect(
+                        child: Image.asset("assets/images/shutterstock1.jpg"),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
       drawer: Drawer(
+        elevation: 40,
         backgroundColor: Colors.teal[600],
         child: Column(
           children: [
@@ -26,16 +64,15 @@ class HomePage extends StatelessWidget {
                 ),
                 accountName: Text("Luiz Guilherme"),
                 accountEmail: Text("luiz@gmail.com")),
-            DrawerHeader(
-              child: Text("Menu"),
-            ),
             ListTile(
-                title: Text("Drawer"),
+                title: Text(
+                  "Redes Sociais",
+                ),
                 onTap: () {
                   print("return");
                 }),
             ListTile(
-                title: Text("Drawer"),
+                title: Text("Sobre nós"),
                 onTap: () {
                   print("Clique");
                 }),
@@ -52,32 +89,15 @@ class HomePage extends StatelessWidget {
       ),
       appBar: AppBar(
         title: Text("Menu do Usuário"),
+        elevation: 20,
         backgroundColor: Colors.teal,
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.outbox),
+            icon: const Icon(Icons.mail),
             tooltip: 'Mensagens',
             onPressed: () {
               Navigator.of(context).pushNamed('/mail');
               MailPage();
-              // Navigator.push(context, MaterialPageRoute<void>(
-              //   builder: (BuildContext context) {
-              //     return Scaffold(
-              //       appBar: AppBar(
-              //         title: const Text('Opções',textAlign: ),
-              //         shadowColor: Colors.black,
-              //         backgroundColor: Colors.teal,
-              //       ),
-              //       body: Center(
-              //         child: Text(
-              //           'Opção do usuário',
-              //           style: TextStyle(fontSize: 28),
-              //         ),
-              //       ),
-              //       backgroundColor: Colors.teal,
-              //     );
-              //   },
-              // ));
             },
           ),
         ],

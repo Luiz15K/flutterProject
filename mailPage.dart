@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MailPage extends StatefulWidget {
   const MailPage({Key? key}) : super(key: key);
@@ -13,9 +12,11 @@ class _MailPageState extends State<MailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 20,
         backgroundColor: Colors.teal[700],
-        title: Text("Opções"),
+        title: Text("Minhas Mensagens"),
       ),
+      backgroundColor: Colors.teal,
     );
   }
 }
