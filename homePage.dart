@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto/bottomBar.dart';
+
 import 'package:projeto/mailPage.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,7 +20,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //bottomNavigationBar: bottomBar(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: "Opções",
+              backgroundColor: Colors.teal),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
+              backgroundColor: Colors.teal),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              label: "Perfil",
+              backgroundColor: Colors.teal),
+        ],
+      ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         width: double.maxFinite,
