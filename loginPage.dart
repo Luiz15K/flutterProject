@@ -28,31 +28,36 @@ class _LoginPageState extends State<LoginPage> {
               child: Image.asset('assets/images/logo.png'),
             ),
             SizedBox(
-              height: 20,
+              height: 80,
             ),
             Card(
+              elevation: 30,
               child: Padding(
                 padding: const EdgeInsets.only(
                     left: 12, right: 12, top: 20, bottom: 12),
                 child: Column(
                   children: [
                     TextField(
+                      textAlign: TextAlign.center,
                       onChanged: (text) {
                         login = text;
                       },
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: "Login"),
+                          border: OutlineInputBorder(),
+                          hintText: "Digite seu Login"),
                     ),
                     SizedBox(
                       height: 15,
                     ),
                     TextField(
+                      textAlign: TextAlign.center,
                       onChanged: (text) {
                         password = text;
                       },
                       obscureText: true,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: "Senha"),
+                          border: OutlineInputBorder(),
+                          hintText: "Digite sua senha"),
                     ),
                     SizedBox(
                       height: 15,
@@ -66,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                           (print("Tente Novamente"));
                       },
                       child: Container(
-                          width: double.infinity,
+                          width: 100,
                           child: Text(
                             "Entrar",
                             textAlign: TextAlign.center,

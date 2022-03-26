@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomBar(),
+      //bottomNavigationBar: bottomBar(),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         width: double.maxFinite,
@@ -28,6 +28,7 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Card(
+                borderOnForeground: true,
                 color: Colors.teal,
                 elevation: 20,
                 child: InkWell(
