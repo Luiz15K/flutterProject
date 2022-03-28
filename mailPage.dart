@@ -13,10 +13,10 @@ class _MailPageState extends State<MailPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 20,
-        backgroundColor: Colors.teal[700],
+        backgroundColor: Color.fromARGB(255, 0, 150, 136),
         title: Text("Minhas Mensagens"),
       ),
-      backgroundColor: Colors.teal,
+      backgroundColor: Color.fromARGB(255, 21, 43, 41),
     );
   }
 }

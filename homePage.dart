@@ -1,39 +1,46 @@
+import 'dart:html';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:projeto/mailPage.dart';
 
-class HomePage extends StatelessWidget {
+// ignore: must_be_immutable
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  mudarCores() {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Colors.teal,
-        statusBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.dark,
-        systemNavigationBarColor: Colors.teal,
-        systemNavigationBarIconBrightness: Brightness.dark));
-  }
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+        showUnselectedLabels: false,
+        iconSize: 25,
+        type: BottomNavigationBarType.shifting,
+        onTap: (index) => setState(() => currentIndex = index),
+        currentIndex: currentIndex,
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: "Opções",
-              backgroundColor: Colors.teal),
+              backgroundColor: Color.fromARGB(255, 0, 150, 136)),
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Home",
-              backgroundColor: Colors.teal),
+              backgroundColor: Color.fromARGB(255, 0, 150, 136)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: "Perfil",
-              backgroundColor: Colors.teal),
+            icon: Icon(Icons.account_circle),
+            label: "Perfil",
+            backgroundColor: Color.fromARGB(255, 0, 150, 136),
+          )
         ],
       ),
       body: Container(
@@ -43,7 +50,8 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Card(
-                borderOnForeground: true,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
                 color: Colors.teal,
                 elevation: 20,
                 child: InkWell(
@@ -55,7 +63,9 @@ class HomePage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(24),
                       child: ClipRRect(
-                        child: Image.asset("assets/images/shutterstock1.jpg"),
+                        child: Image.asset(
+                          "assets/images/shutterstock1.jpg",
+                        ),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10)),
                       ),
@@ -63,16 +73,18 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
       drawer: Drawer(
-        elevation: 40,
-        backgroundColor: Colors.teal[600],
+        backgroundColor: Color.fromARGB(255, 21, 43, 41),
         child: Column(
           children: [
             UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 21, 43, 41),
+                ),
                 currentAccountPicture: ClipRRect(
                   borderRadius: BorderRadius.circular(40),
                   child: Image.network(
@@ -84,11 +96,13 @@ class HomePage extends StatelessWidget {
                 title: Text(
                   "Redes Sociais",
                 ),
+                textColor: Colors.white,
                 onTap: () {
                   print("return");
                 }),
             ListTile(
                 title: Text("Sobre nós"),
+                textColor: Colors.white,
                 onTap: () {
                   print("Clique");
                 }),
@@ -96,6 +110,7 @@ class HomePage extends StatelessWidget {
                 title: Text(
                   "Logout",
                 ),
+                textColor: Colors.white,
                 subtitle: Text("Sair do seu perfil"),
                 onTap: () {
                   Navigator.of(context).pushReplacementNamed('/');
@@ -104,9 +119,10 @@ class HomePage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        title: Text("Menu do Usuário"),
+        title: Text("Bem-Vindo Luiz!"),
+        centerTitle: true,
         elevation: 20,
-        backgroundColor: Colors.teal,
+        backgroundColor: Color.fromARGB(255, 0, 150, 136),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.mail),
@@ -118,7 +134,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.teal[700],
+      backgroundColor: Color.fromARGB(255, 21, 43, 41),
     );
   }
 }
