@@ -14,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   String password = '';
 
   Widget _body() {
+    var black = Colors.black;
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
@@ -80,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -1,7 +1,6 @@
 import 'dart:html';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'package:projeto/mailPage.dart';
 
@@ -14,14 +13,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentIndex = 0;
+  int currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white70,
+        selectedItemColor: Color.fromARGB(255, 51, 66, 91),
+        unselectedItemColor: Color.fromARGB(255, 51, 66, 91),
         showUnselectedLabels: false,
         iconSize: 25,
         type: BottomNavigationBarType.shifting,
@@ -31,15 +30,15 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: "Opções",
-              backgroundColor: Color.fromARGB(255, 0, 150, 136)),
+              backgroundColor: Color.fromARGB(255, 35, 232, 232)),
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Home",
-              backgroundColor: Color.fromARGB(255, 0, 150, 136)),
+              backgroundColor: Color.fromARGB(255, 35, 232, 232)),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
             label: "Perfil",
-            backgroundColor: Color.fromARGB(255, 0, 150, 136),
+            backgroundColor: Color.fromARGB(255, 35, 232, 232),
           )
         ],
       ),
@@ -52,7 +51,7 @@ class _HomePageState extends State<HomePage> {
               child: Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
-                color: Colors.teal,
+                color: Color.fromARGB(255, 35, 232, 232),
                 elevation: 20,
                 child: InkWell(
                   onTap: () {
@@ -74,55 +73,135 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            Center(
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                color: Color.fromARGB(255, 35, 232, 232),
+                elevation: 20,
+                child: InkWell(
+                  onTap: () {},
+                  splashColor: Colors.teal,
+                  child: SizedBox(
+                    width: 500,
+                    height: 120,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: ClipRRect(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
+              color: Color.fromARGB(255, 35, 232, 232),
+              elevation: 20,
+              child: InkWell(
+                onTap: () {},
+                splashColor: Colors.teal,
+                child: SizedBox(
+                  width: 100,
+                  height: 120,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
+              color: Color.fromARGB(255, 35, 232, 232),
+              elevation: 20,
+              child: InkWell(
+                onTap: () {},
+                splashColor: Colors.teal,
+                child: SizedBox(
+                  width: 100,
+                  height: 120,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Container(
+                        child: ClipRRect(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
-      drawer: Drawer(
-        backgroundColor: Color.fromARGB(255, 21, 43, 41),
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 21, 43, 41),
-                ),
-                currentAccountPicture: ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: Image.network(
-                      "https://avatars.githubusercontent.com/u/98491571?s=400&u=4071a0bf7c258928a5be27e0a68a5e3ac092b805&v=4"),
-                ),
-                accountName: Text("Luiz Guilherme"),
-                accountEmail: Text("luiz@gmail.com")),
-            ListTile(
-                title: Text(
-                  "Redes Sociais",
-                ),
-                textColor: Colors.white,
-                onTap: () {
-                  print("return");
-                }),
-            ListTile(
-                title: Text("Sobre nós"),
-                textColor: Colors.white,
-                onTap: () {
-                  print("Clique");
-                }),
-            ListTile(
-                title: Text(
-                  "Logout",
-                ),
-                textColor: Colors.white,
-                subtitle: Text("Sair do seu perfil"),
-                onTap: () {
-                  Navigator.of(context).pushReplacementNamed('/');
-                })
-          ],
+      drawer: Container(
+        child: Drawer(
+          backgroundColor: Color.fromARGB(255, 28, 40, 64),
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 28, 40, 64),
+                  ),
+                  currentAccountPicture: ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: Image.network(
+                        "https://avatars.githubusercontent.com/u/98491571?s=400&u=4071a0bf7c258928a5be27e0a68a5e3ac092b805&v=4"),
+                  ),
+                  accountName: Text(
+                    "Luiz Guilherme",
+                  ),
+                  accountEmail: Text("luiz@gmail.com")),
+              ListTile(
+                  title: Text(
+                    "Redes Sociais",
+                  ),
+                  textColor: Color.fromARGB(255, 35, 232, 232),
+                  onTap: () {
+                    print("return");
+                  }),
+              ListTile(
+                  title: Text("Sobre nós"),
+                  textColor: Color.fromARGB(255, 35, 232, 232),
+                  onTap: () {
+                    print("Clique");
+                  }),
+              ListTile(
+                  title: Text(
+                    "Logout",
+                  ),
+                  textColor: Color.fromARGB(255, 35, 232, 232),
+                  subtitle: Text("Sair do seu perfil"),
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed('/');
+                  })
+            ],
+          ),
         ),
       ),
       appBar: AppBar(
-        title: Text("Bem-Vindo Luiz!"),
+        title: Text(
+          "Bem-Vindo Luiz!",
+        ),
+        foregroundColor: Color.fromARGB(255, 28, 40, 64),
         centerTitle: true,
         elevation: 20,
-        backgroundColor: Color.fromARGB(255, 0, 150, 136),
+        backgroundColor: Color.fromARGB(255, 35, 232, 232),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.mail),
@@ -134,7 +213,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      backgroundColor: Color.fromARGB(255, 21, 43, 41),
+      backgroundColor: Color.fromARGB(255, 28, 40, 64),
     );
   }
 }
