@@ -1,4 +1,5 @@
-import 'dart:html';
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
@@ -58,16 +59,67 @@ class _HomePageState extends State<HomePage> {
                     Navigator.of(context).pushNamed('/home');
                   },
                   splashColor: Colors.teal,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: ClipRRect(
-                        child: Image.asset(
-                          "assets/images/shutterstock1.jpg",
+                  child: Column(
+                    children: <Widget>[
+                      const ListTile(
+                        title: Text(
+                          "Seu app de Finanças está aqui!",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 51, 66, 91)),
+                          textAlign: TextAlign.center,
                         ),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
                       ),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(24),
+                          child: ClipRRect(
+                            child: Image.asset(
+                              "assets/images/shutterstock1.jpg",
+                            ),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Center(
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                color: Color.fromARGB(255, 35, 232, 232),
+                elevation: 20,
+                child: InkWell(
+                  onTap: () {},
+                  splashColor: Colors.teal,
+                  child: SizedBox(
+                    width: 500,
+                    height: 120,
+                    child: Column(
+                      children: <Widget>[
+                        const ListTile(
+                          title: Text(
+                            "Minha Conta",
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 51, 66, 91),
+                                fontSize: 20),
+                          ),
+                        ),
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(24),
+                            child: ClipRRect(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -85,14 +137,26 @@ class _HomePageState extends State<HomePage> {
                   child: SizedBox(
                     width: 500,
                     height: 120,
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(24),
-                        child: ClipRRect(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
+                    child: Column(
+                      children: <Widget>[
+                        const ListTile(
+                          title: Text(
+                            "Serviços",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Color.fromARGB(255, 51, 66, 91)),
+                          ),
                         ),
-                      ),
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(24),
+                            child: ClipRRect(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -109,43 +173,30 @@ class _HomePageState extends State<HomePage> {
                 child: SizedBox(
                   width: 100,
                   height: 120,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: ClipRRect(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
+                  child: Column(
+                    children: <Widget>[
+                      const ListTile(
+                        title: Text(
+                          "Fale Conosco",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 51, 66, 91)),
+                        ),
                       ),
-                    ),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(24),
+                          child: ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
-              color: Color.fromARGB(255, 35, 232, 232),
-              elevation: 20,
-              child: InkWell(
-                onTap: () {},
-                splashColor: Colors.teal,
-                child: SizedBox(
-                  width: 100,
-                  height: 120,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: Container(
-                        child: ClipRRect(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            )
           ],
         ),
       ),
