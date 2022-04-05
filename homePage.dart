@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
-import 'dart:ui';
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/foundation.dart';
 import 'package:projeto/mailPage.dart';
 
 // ignore: must_be_immutable
@@ -19,30 +19,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Color.fromARGB(255, 51, 66, 91),
-        unselectedItemColor: Color.fromARGB(255, 51, 66, 91),
-        showUnselectedLabels: false,
-        iconSize: 25,
-        type: BottomNavigationBarType.shifting,
-        onTap: (index) => setState(() => currentIndex = index),
-        currentIndex: currentIndex,
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "Opções",
-              backgroundColor: Color.fromARGB(255, 35, 232, 232)),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-              backgroundColor: Color.fromARGB(255, 35, 232, 232)),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: "Perfil",
-            backgroundColor: Color.fromARGB(255, 35, 232, 232),
-          )
-        ],
-      ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         width: double.maxFinite,
@@ -66,7 +42,6 @@ class _HomePageState extends State<HomePage> {
                           "Seu app de Finanças está aqui!",
                           style: TextStyle(
                               fontSize: 20,
-                              fontWeight: FontWeight.bold,
                               color: Color.fromARGB(255, 51, 66, 91)),
                           textAlign: TextAlign.center,
                         ),
@@ -88,6 +63,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             Center(
               child: Card(
                 shape: RoundedRectangleBorder(
@@ -95,7 +73,9 @@ class _HomePageState extends State<HomePage> {
                 color: Color.fromARGB(255, 35, 232, 232),
                 elevation: 20,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/');
+                  },
                   splashColor: Colors.teal,
                   child: SizedBox(
                     width: 500,
@@ -107,6 +87,7 @@ class _HomePageState extends State<HomePage> {
                             "Minha Conta",
                             style: TextStyle(
                                 color: Color.fromARGB(255, 51, 66, 91),
+                                fontWeight: FontWeight.bold,
                                 fontSize: 20),
                           ),
                         ),
@@ -125,6 +106,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             Center(
               child: Card(
                 shape: RoundedRectangleBorder(
@@ -132,7 +116,9 @@ class _HomePageState extends State<HomePage> {
                 color: Color.fromARGB(255, 35, 232, 232),
                 elevation: 20,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/');
+                  },
                   splashColor: Colors.teal,
                   child: SizedBox(
                     width: 500,
@@ -144,6 +130,7 @@ class _HomePageState extends State<HomePage> {
                             "Serviços",
                             style: TextStyle(
                                 fontSize: 20,
+                                fontWeight: FontWeight.bold,
                                 color: Color.fromARGB(255, 51, 66, 91)),
                           ),
                         ),
@@ -162,13 +149,18 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15)),
               color: Color.fromARGB(255, 35, 232, 232),
               elevation: 20,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed('/');
+                },
                 splashColor: Colors.teal,
                 child: SizedBox(
                   width: 100,
@@ -180,6 +172,7 @@ class _HomePageState extends State<HomePage> {
                           "Fale Conosco",
                           style: TextStyle(
                               fontSize: 20,
+                              fontWeight: FontWeight.bold,
                               color: Color.fromARGB(255, 51, 66, 91)),
                         ),
                       ),
@@ -255,7 +248,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color.fromARGB(255, 35, 232, 232),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.mail),
+            icon: const Icon(Icons.message),
             tooltip: 'Mensagens',
             onPressed: () {
               Navigator.of(context).pushNamed('/mail');
@@ -265,6 +258,50 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       backgroundColor: Color.fromARGB(255, 28, 40, 64),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            color: Color.fromARGB(255, 35, 232, 232),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+            boxShadow: [
+              BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10)
+            ]),
+        child: InkWell(
+          child: Padding(
+            padding: EdgeInsets.only(top: 8),
+            child: Material(
+              elevation: 0.0,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              color: Color.fromARGB(255, 35, 232, 232),
+              child: BottomNavigationBar(
+                onTap: (index) => setState(() => currentIndex = index),
+                currentIndex: currentIndex,
+                selectedItemColor: Color.fromARGB(255, 28, 40, 64),
+                type: BottomNavigationBarType.fixed,
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                items: <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.settings,
+                    ),
+                    label: "Opções",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.home),
+                    label: "Início",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.account_circle),
+                    label: "Perfil",
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
