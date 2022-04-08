@@ -43,7 +43,9 @@ class _LoginPageState extends State<LoginPage> {
                         login = text;
                       },
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          fillColor: Color.fromARGB(255, 35, 232, 232),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30)),
                           hintText: "Digite seu Login"),
                     ),
                     SizedBox(
@@ -56,8 +58,11 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       obscureText: true,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Digite sua senha"),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          fillColor: Color.fromARGB(255, 35, 232, 232),
+                          hintText: "Digite sua senha",
+                          iconColor: Color.fromARGB(255, 35, 232, 232)),
                     ),
                     SizedBox(
                       height: 15,
@@ -71,11 +76,12 @@ class _LoginPageState extends State<LoginPage> {
                           (print("Tente Novamente"));
                       },
                       child: Container(
-                          width: 100,
-                          child: Text(
-                            "Entrar",
-                            textAlign: TextAlign.center,
-                          )),
+                        width: 100,
+                        child: Text(
+                          "Entrar",
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     )
                   ],
                 ),

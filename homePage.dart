@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
-
+// --no-sound-null-safety
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter/foundation.dart';
 import 'package:projeto/mailPage.dart';
+import 'package:projeto/pageView.dart';
+// ignore: import_of_legacy_library_into_null_safe
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
@@ -46,18 +46,10 @@ class _HomePageState extends State<HomePage> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(24),
-                          child: ClipRRect(
-                            child: Image.asset(
-                              "assets/images/shutterstock1.jpg",
-                            ),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
-                          ),
-                        ),
-                      ),
+                      Image.asset(
+                        "assets/images/1.png",
+                        fit: BoxFit.fill,
+                      )
                     ],
                   ),
                 ),
@@ -152,40 +144,42 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 10,
             ),
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
-              color: Color.fromARGB(255, 35, 232, 232),
-              elevation: 20,
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed('/');
-                },
-                splashColor: Colors.teal,
-                child: SizedBox(
-                  width: 100,
-                  height: 120,
-                  child: Column(
-                    children: <Widget>[
-                      const ListTile(
-                        title: Text(
-                          "Fale Conosco",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 51, 66, 91)),
-                        ),
-                      ),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(24),
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
+            Container(
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                color: Color.fromARGB(255, 35, 232, 232),
+                elevation: 20,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/');
+                  },
+                  splashColor: Colors.teal,
+                  child: SizedBox(
+                    width: 100,
+                    height: 120,
+                    child: Column(
+                      children: <Widget>[
+                        const ListTile(
+                          title: Text(
+                            "Fale Conosco",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 51, 66, 91)),
                           ),
                         ),
-                      ),
-                    ],
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(24),
+                            child: ClipRRect(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -283,17 +277,28 @@ class _HomePageState extends State<HomePage> {
                 backgroundColor: Colors.transparent,
                 items: <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.settings,
-                    ),
+                    icon: new Image.asset("assets/icons/settings.png",
+                        color: Color.fromARGB(255, 28, 40, 64), scale: 1.8),
+                    activeIcon: new Image.asset(
+                        "assets/icons/settingsselect.png",
+                        color: Color.fromARGB(255, 28, 40, 64),
+                        scale: 1.8),
                     label: "Opções",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: "Início",
-                  ),
+                      icon: new Image.asset("assets/icons/home.png",
+                          color: Color.fromARGB(255, 28, 40, 64), scale: 1.8),
+                      label: "Início",
+                      activeIcon: new Image.asset("assets/icons/homeselect.png",
+                          color: Color.fromARGB(255, 28, 40, 64), scale: 1.8)),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.account_circle),
+                    icon: new Image.asset("assets/icons/user.png",
+                        color: Color.fromARGB(255, 28, 40, 64), scale: 1.8),
+                    activeIcon: new Image.asset(
+                      "assets/icons/userselect.png",
+                      color: Color.fromARGB(255, 28, 40, 64),
+                      scale: 1.8,
+                    ),
                     label: "Perfil",
                   )
                 ],
