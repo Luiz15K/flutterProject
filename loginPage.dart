@@ -1,115 +1,169 @@
-import 'dart:ui';
+import 'dart:js';
+
 import 'package:flutter/material.dart';
-import 'package:projeto/homePage.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/services.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  String login = '';
-  String password = '';
+String login = '';
+String password = '';
 
-  Widget _body() {
-    return SizedBox(
-      width: double.infinity,
-      height: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 200,
-              height: 200,
-              child: Image.asset('assets/images/logo.png'),
-            ),
-            SizedBox(
-              height: 80,
-            ),
-            Card(
-              elevation: 30,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 12, right: 12, top: 20, bottom: 12),
+Widget buildEmail() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      SizedBox(height: 10),
+      Container(
+        alignment: Alignment.centerLeft,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black,
+                blurRadius: 6,
+              )
+            ]),
+        height: 60,
+        child: TextField(
+          onChanged: (text) {
+            login = text;
+          },
+          keyboardType: TextInputType.emailAddress,
+          style: TextStyle(color: Colors.black87),
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.only(top: 14),
+            prefixIcon: Icon(Icons.email_outlined,
+                color: Color.fromARGB(255, 28, 40, 64)),
+          ),
+        ),
+      )
+    ],
+  );
+}
+
+Widget buildPassword() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      SizedBox(height: 10),
+      Container(
+        alignment: Alignment.centerLeft,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black,
+                blurRadius: 6,
+              )
+            ]),
+        height: 60,
+        child: TextField(
+          onChanged: (text) {
+            password = text;
+          },
+          obscureText: true,
+          style: TextStyle(color: Colors.black87),
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.only(top: 14),
+            prefixIcon: Icon(Icons.lock_outline,
+                color: Color.fromARGB(255, 28, 40, 64)),
+          ),
+        ),
+      )
+    ],
+  );
+}
+
+Widget buildSignBtn() {
+  return GestureDetector(
+    onTap: () => print("Login"),
+    child: RichText(
+      text: TextSpan(children: [
+        TextSpan(
+            text: 'Não possui uma conta?',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+            )),
+        TextSpan(
+            text: '  Cadastre já!',
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18))
+      ]),
+    ),
+  );
+}
+
+Widget buildLoginBtn() {
+  return Container(
+    padding: EdgeInsets.symmetric(vertical: 25),
+    width: double.infinity,
+    child: RaisedButton(
+      elevation: 5,
+      onPressed: () => print("login"),
+      padding: EdgeInsets.all(15),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      color: Color.fromARGB(255, 35, 232, 232),
+      child: Text(
+        "Entrar",
+        style: TextStyle(
+            color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+    ),
+  );
+}
+
+void setState(Null Function() param0) {}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light,
+        child: Stack(
+          children: <Widget>[
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              decoration: BoxDecoration(color: Color.fromARGB(255, 28, 40, 64)),
+              child: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
                 child: Column(
-                  children: [
-                    TextField(
-                      textAlign: TextAlign.center,
-                      onChanged: (text) {
-                        login = text;
-                      },
-                      decoration: InputDecoration(
-                          fillColor: Color.fromARGB(255, 35, 232, 232),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30)),
-                          hintText: "Digite seu Login"),
-                    ),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
                     SizedBox(
-                      height: 15,
+                      child: Image.asset("assets/images/logo.png"),
                     ),
-                    TextField(
-                      textAlign: TextAlign.center,
-                      onChanged: (text) {
-                        password = text;
-                      },
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30)),
-                          fillColor: Color.fromARGB(255, 35, 232, 232),
-                          hintText: "Digite sua senha",
-                          iconColor: Color.fromARGB(255, 35, 232, 232)),
+                    Text(
+                      "Vamos Começar!",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    RaisedButton(
-                      color: Colors.teal,
-                      onPressed: () {
-                        if (login == "admin" && password == "1234")
-                          Navigator.of(context).pushReplacementNamed('/home');
-                        else
-                          (print("Tente Novamente"));
-                      },
-                      child: Container(
-                        width: 100,
-                        child: Text(
-                          "Entrar",
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    )
+                    SizedBox(height: 20),
+                    buildEmail(),
+                    SizedBox(height: 10),
+                    buildPassword(),
+                    SizedBox(height: 10),
+                    buildSignBtn(),
+                    buildLoginBtn()
                   ],
                 ),
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Image.asset(
-              'assets/images/background.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            color: Colors.black.withOpacity(0.2),
-          ),
-          _body(),
-        ],
       ),
     );
   }
