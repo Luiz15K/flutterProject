@@ -121,6 +121,14 @@ Widget buildLoginBtn() {
   );
 }
 
+RaisedButton(
+    {required int elevation,
+    required void Function() onPressed,
+    required EdgeInsets padding,
+    required RoundedRectangleBorder shape,
+    required Color color,
+    required Text child}) {}
+
 void setState(Null Function() param0) {}
 
 class _LoginPageState extends State<LoginPage> {
