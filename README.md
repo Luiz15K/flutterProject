@@ -1,1 +1,1 @@
-Flutter Project - Project Valkyrie
+Flutter Project 
